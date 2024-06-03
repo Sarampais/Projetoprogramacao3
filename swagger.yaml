@@ -1,0 +1,631 @@
+openapi: 3.0.0
+info:
+  title: Feridas Cirúrgicas API
+  description: API em OpenAPi 3.0 para o Projeto Final de Programação III do curso de Multimédia
+  version: 1.0.0
+servers:
+  - url: http://localhost:5000
+paths:
+  /enfermeiros:
+    get:
+      tags: 
+        - Enfermeiro
+      summary: Get all enfermeiros
+      responses:
+        '200':
+          description: A list of enfermeiros
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Enfermeiro'
+    post:
+      tags: 
+        - Enfermeiro
+      summary: Create a new enfermeiro
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Enfermeiro'
+      responses:
+        '200':
+          description: The newly created enfermeiro
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Enfermeiro'
+  /enfermeiros/{id}:
+    get:
+      tags: 
+        - Enfermeiro
+      summary: Get enfermeiro by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: The enfermeiro
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Enfermeiro'
+    put:
+      tags: 
+        - Enfermeiro
+      summary: Update enfermeiro by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Enfermeiro'
+      responses:
+        '200':
+          description: The updated enfermeiro
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Enfermeiro'
+    delete:
+      tags: 
+        - Enfermeiro
+      summary: Delete enfermeiro by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Enfermeiro deleted successfully
+          
+  /episodio:
+    get:
+      tags: 
+        - Episódio
+      summary: Get all episodios
+      responses:
+        '200':
+          description: A list of episódios
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Episodio'
+                  
+    post:
+      tags: 
+        - Episódio
+      summary: Create a new episodio
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Episodio'
+      responses:
+        '200':
+          description: The newly created episódio
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Episodio'
+                
+  /episodios/{id}:
+    get:
+      tags: 
+        - Episódio
+      summary: Get episodio by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: The episodio
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Episodio'
+    put:
+      tags: 
+        - Episódio
+      summary: Update episodio by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Episodio'
+      responses:
+        '200':
+          description: The updated episodio
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Episodio'
+    delete:
+      tags: 
+        - Episódio
+      summary: Delete episodio by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Episodio deleted successfully
+  
+  /feridas:
+    get:
+      tags: 
+        - Ferida
+      summary: Get all feridas
+      responses:
+        '200':
+          description: A list of feridas
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Ferida'
+    post:
+      tags: 
+        - Ferida
+      summary: Create a new ferida
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Enfermeiro'
+      responses:
+        '200':
+          description: The newly created ferida
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ferida'
+  /feridas/{id}:
+    get:
+      tags: 
+        - Ferida
+      summary: Get ferida by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: The ferida
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ferida'
+    put:
+      tags: 
+        - Ferida
+      summary: Update ferida by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Ferida'
+      responses:
+        '200':
+          description: The updated ferida
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ferida'
+    delete:
+      tags: 
+        - Ferida
+      summary: Delete ferida by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Ferida deleted successfully
+          
+  /medicos:
+    get:
+      tags: 
+        - Medico
+      summary: Get all medicos
+      responses:
+        '200':
+          description: A list of médicos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Medico'
+    post:
+      tags: 
+        - Medico
+      summary: Create a new medico
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Medico'
+      responses:
+        '200':
+          description: The newly created medico
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Medico'
+                
+  /medicos/{id}:
+    get:
+      tags: 
+        - Medico
+      summary: Get medico by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: The medico
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Medico'
+    put:
+      tags: 
+        - Medico
+      summary: Update medico by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Medico'
+      responses:
+        '200':
+          description: The updated medico
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Medico'
+    delete:
+      tags: 
+        - Medico
+      summary: Delete medico by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Médico deleted successfully
+          
+  /user:
+    get:
+      tags: 
+        - User
+      summary: Get all user
+      responses:
+        '200':
+          description: A list of user
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+    post:
+      tags: 
+        - User
+      summary: Create a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          description: The newly created user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+                
+  /user/{id}:
+    get:
+      tags: 
+        - User
+      summary: Get user by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: The user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+    put:
+      tags: 
+        - User
+      summary: Update user by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          description: The updated user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+    delete:
+      tags: 
+        - User
+      summary: Delete user by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: User deleted successfully
+          
+  /utentes:
+    get:
+      tags: 
+        - Utente
+      summary: Get all utentes
+      responses:
+        '200':
+          description: A list of utentes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Utente'
+    post:
+      tags: 
+        - Utente
+      summary: Create a new utente
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Utente'
+      responses:
+        '200':
+          description: The newly created utente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Utente'
+                
+  /utentes/{id}:
+    get:
+      tags: 
+        - Utente
+      summary: Get utente by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: The utente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Utente'
+    put:
+      tags: 
+        - Utente
+      summary: Update utente by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Utente'
+      responses:
+        '200':
+          description: The updated utente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Utente'
+    delete:
+      tags: 
+        - Utente
+      summary: Delete utente by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Utente deleted successfully
+          
+components:
+  schemas:
+    Enfermeiro:
+      type: object
+      properties:
+        nome:
+          type: string
+        numero_mecan:
+          type: integer
+        servico:
+          type: string
+          
+    Episodio:
+      type: object
+      properties:
+        tpo_cicatrizacao:
+          type: string
+        area:
+          type: integer
+        largura:
+          type: integer
+        comprimento: 
+          type: integer
+        inflamacao: 
+          type: string 
+        qualidade:
+          type: string
+        odor: 
+          type: string
+        observacoes: 
+          type: string 
+        n_de_episodio:
+          type: integer
+          format: int64
+        data:
+          type: string
+          format: date
+        cor: 
+          type: text
+        id_ferida: 
+          type: integer
+          
+    Ferida: 
+      type: object
+      properties: 
+        id_ferida: 
+          type: integer
+        tpo_cicatrizacao: 
+          type: string
+        area: 
+          type: integer
+        largura: 
+          type: integer
+        comprimento: 
+          type: integer
+        inflamacao: 
+          type: string 
+        qualidade: 
+          type: string
+        odor: 
+          type: string
+        cor: 
+          type: string 
+        n_de_utente: 
+          type: integer
+          
+    Medico: 
+      type: object
+      properties: 
+        n_mecan:
+          type: integer
+        nome: 
+          type: string
+        ct_profissional:
+          type: string 
+        especialidade:
+          type: string
+          
+    User: 
+      type: object 
+      properties: 
+        id: 
+          type: integer
+        username: 
+          type: string
+          format: varchar (100)
+        password: 
+          type: string 
+          format: varchar (50)
+            
+    Utente: 
+      type: object 
+      properties: 
+        n_de_utente: 
+          type: integer
+        nome: 
+          type: string
+        nif: 
+          type: integer
+        n_de_seguranca_social:
+          type: integer
+            
