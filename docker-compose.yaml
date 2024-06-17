@@ -1,0 +1,61 @@
+services:
+  webserver:
+    build:
+      context: .
+    image: projeto
+    container_name: "app"
+    links:
+      - mysql
+    depends_on:
+      - mysql
+    volumes:
+      - .:/home/node/app
+    ports:
+      - "5200:5200"
+    environment:
+      - MYSQL_PASS=123
+    networks:
+      - app-web-net
+
+  apache:
+    image: httpd:latest
+    container_name: "apache"
+    ports:
+      - "80:80"
+    volumes:
+      - ./html:/usr/local/apache2/htdocs
+    depends_on:
+      - php
+    networks:
+      - app-web-net
+
+  mysql:
+    image: mysql:latest
+    container_name: "mysql"
+    restart: "always"
+    ports:
+      - “3306:3306”
+    environment:
+      - MYSQL_ROOT_PASSWORD=123
+    networks:
+      - app-web-net
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: "phpmyadmin"
+    links:
+      - mysql
+    depends_on:
+      - mysql
+    ports:
+      - "8081:80"
+    volumes:
+      - /sessions
+    environment:
+      - PMA_HOST=mysql
+      - PMA_PORT=8889
+    networks:
+      - app-web-net
+
+networks:
+  app-web-net:
